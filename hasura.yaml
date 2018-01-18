@@ -1,0 +1,5 @@
+description: A quickstart slack horoscope bot based on nodejs
+keywords: bot, slack, nodejs, express, node, javascript, slack, slack bot, chatbot
+media: {}
+name: slack-horoscope-bot
+platformVersion: v0.15.3
