@@ -28,7 +28,9 @@ Github API client by [Philip Schatz](https://github.com/philschatz/octokat.js)
 * Choose sign-up and follow procedures to create a new account and password.
 
 * Now login back to your main account (Do not forget this step)
-* Head over to the Settings page of your repository, and click on Webhooks & services. After that, click on Add webhook.
+* Head over to the Settings page, click on Developer settings, head over to Github Apps from side bar and click on new Github App.
+![githubapp](https://github.com/dvkcool/git-issue-bot/blob/master/demo/githubapp.png?raw=true)
+
 * Fill the details such as Homepage url(Optional but you give me a few credits too) and webhook url. The webhook url is https://bot.yourclustername.hasura-app.io/webhook.
 ![Webhook](https://github.com/dvkcool/git-issue-bot/blob/master/demo/webhook.png?raw=true)
 
