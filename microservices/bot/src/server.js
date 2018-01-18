@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
 app.post('/webhook/', function(req, res) {
   console.log(JSON.stringify(req.body));
   if (req.body.action === 'closed') {
-    var msg = "Thank you @"+req.body.sender.login + " for helping solve an issue";
+    var msg = "Thank you @"+req.body.sender.login + " for helping solve an issue.";
     var params= {
       "body": msg
     };
