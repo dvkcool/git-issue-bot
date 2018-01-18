@@ -20,7 +20,17 @@ items:
       spec:
         containers:
         - image: hasura/hello-world:latest
-          env:
+          env: 
+            - name: username
+              valueFrom:
+                secretKeyRef:
+                  key: username.key
+                  name: hasura-secrets
+            - name: password
+              valueFrom:
+                secretKeyRef:
+                  key: password.key
+                  name: hasura-secrets
           imagePullPolicy: IfNotPresent
           name: bot
           ports:

@@ -3,13 +3,14 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 var Octokat = require('octokat');
-
+const usern = process.env.username;
+const pass = process.env.password;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 var octo = new Octokat({
-  username: "dk-learner",
-  password: "deepti2002"
+  username: usern,
+  password: pass
 });
 
 //your routes here
