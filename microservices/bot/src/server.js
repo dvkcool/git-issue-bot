@@ -25,7 +25,13 @@ app.post('/webhook/', function(req, res) {
       "body": msg
     };
     octo.repos(req.body.repository.owner.login, req.body.repository.name).issues(req.body.issue.number).comments.create(params);
-  } else {
+  } else if(req.body.action === 'opened') {
+    var msg = "We will be happy to help you solve your issue @"+req.body.sender.login;
+    var params= {
+      "body": msg
+    };
+    octo.repos(req.body.repository.owner.login, req.body.repository.name).issues(req.body.issue.number).comments.create(params);
+  }else {
     console.log('Error: Not a page object');
   }
   res.sendStatus(200);
