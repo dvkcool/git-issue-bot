@@ -1,15 +1,17 @@
 # Building a Slack Horoscope Bot on Hasura
 
-This tutorial consists of a quickstart slack bot which can be easily deployed and modified.
+This tutorial consists of a quickstart github bot which can be easily deployed and modified.
 
-This bot gives your horoscope in plain text in various demands like as of today or of week or of year, just need to specify the keywords.
+This bot encourages a user when he/she opens a new issue and also it encourages the collaborator who closes the issue.
+This can be used to manage a good online environment on github.
 
 ## Demo
- ![year](https://github.com/dvkcool/slack-horoscope-bot/blob/master/demo/year.gif?raw=true)
+ ![Opening an issue](https://github.com/dvkcool/git-issue-bot/blob/master/demo/closingbot.gif?raw=true)
+ ![Closing an issue](https://github.com/dvkcool/git-issue-bot/blob/master/demo/openingbot.gif?raw=true)
 
 ## API used
 
-Horoscope API Of [Tapasweni Pathak](https://github.com/tapasweni-pathak/Horoscope-API)
+Github API client by [Philip Schatz](https://github.com/philschatz/octokat.js)
 
 
 ## Pre-requisites
@@ -20,82 +22,43 @@ Horoscope API Of [Tapasweni Pathak](https://github.com/tapasweni-pathak/Horoscop
 
 ## Getting the bot running
 
-### Create a new slack bot integration
+### Create a new Github account for your bot
 
-* Navigate to https://my.slack.com/services/new/bot
-* Choose a bot user name and click on **'+ Add bot integration’**.
+* Navigate to https://github.com
+* Choose sign-up and follow procedures to create a new account and password.
 
-![Bot creation](https://github.com/dvkcool/slack-tic-tac-toe-bot/blob/master/demo/bot-name.png?raw=true)
+* Now login back to your main account (Do not forget this step)
+* Head over to the Settings page of your repository, and click on Webhooks & services. After that, click on Add webhook.
+* Fill the details such as Homepage url(Optional but you give me a few credits too) and webhook url. The webhook url is https://bot.yourclustername.hasura-app.io/webhook.
+![Webhook](https://github.com/dvkcool/git-issue-bot/blob/master/demo/webhook.png?raw=true)
 
-* Copy the API Token from the page, it will be used later.
+* Scroll down to Permissions and choose Read and write for Issues.
+![Permission](https://github.com/dvkcool/git-issue-bot/blob/master/demo/permissions.png?raw=true)
 
-![Bot API screen](https://github.com/dvkcool/slack-tic-tac-toe-bot/blob/master/demo/bot-api-key.png?raw=true)
+* Scroll more and subscribe to Issue events.
+![Subscribe](https://github.com/dvkcool/git-issue-bot/blob/master/demo/subscribeissues.png?raw=true)
 
+* Then click on Save
+* Now click on Install Tab on sidebar and click on install, this will add this app to all repositories of the main user.
+![Install](https://github.com/dvkcool/git-issue-bot/blob/master/demo/install.png?raw=true)
 
 
 ### Getting the Hasura project
 
 ```sh
-$ hasura quickstart dvk/slack-horroscope-bot
+$ hasura quickstart dvk/git-issue-bot
 $ cd slack-horoscope-bot
-# Add Slack API key to hasura secrets. 
-hasura secrets update SLACK_BOT_TOKEN.key  <Your Bot API KEY>
+# Add Github credentials to hasura secrets. 
+$hasura secrets update username.key  <Your bot account username>
+$ hasura secrets update password.key <Your bot account password>
 # Deploy
 $ git add . && git commit -m "Deployment commit"
 $ git push hasura master
 ```
 
-After the `git push` completes:
 
-```sh
-$ hasura microservice list
-```
-
-You will get an output like so:
-
-```sh
-USER MS NAME     STATUS      INTERNAL-URL       EXTERNAL-URL            
-bot              Running     bot.default:80     http://bot.mispronounce16.hasura-app.io
-
-HASURA MS NAME     STATUS      INTERNAL-URL                  EXTERNAL-URL 
-sshd               Running                                   
-auth               Running     auth.hasura:80                http://auth.mispronounce16.hasura-app.io
-postgres           Running     postgres.hasura:5432          
-platform-sync      Running                                   
-filestore          Running     filestore.hasura:80           http://filestore.mispronounce16.hasura-app.io
-gateway            Running                                   
-notify             Running     notify.hasura:80              http://notify.mispronounce16.hasura-app.io
-le-agent           Running                                   
-session-redis      Running     session-redis.hasura:6379     
-data               Running     data.hasura:80                http://data.mispronounce16.hasura-app.io
-
-
-
-```
-
-
-### Adding bot to your groups/DM
-Just type @botname to invite the bot to the channel or DM,
-Then type
-```sh
-#to get todays horoscope
-@botname today zodiac-sign
-
-#to get this week's horoscope
-@botname week zodiac-sign
-
-#to get this month's horoscope
-@botname month zodiac-sign
-
-#to get this year's horoscope
-@botname year zodiac-sign
-
-```
-
-
-Just a demo of how to invite and get first horoscope
-![invitation](https://github.com/dvkcool/slack-horoscope-bot/blob/master/demo/inviting.gif?raw=true)
-
+### Viewing bot in action
+Just create an issue or close and issue, you will see the bot in action.
 
 Congratulations you have succesfully deployed the slack horoscope bot.
 
@@ -110,4 +73,4 @@ Happy Developing :)
 Divyanshu Kumar
 ## Support
 
-If you happen to get stuck anywhere, feel free to mail me at divyanshukumarg@gmail.com. Also, if you find a bug or an issue, you can raise an issue [here](https://github.com/dvkcool/slack-horoscope-bot)
+If you happen to get stuck anywhere, feel free to mail me at divyanshukumarg@gmail.com. Also, if you find a bug or an issue, you can raise an issue [here](https://github.com/dvkcool/git-issue-bot)

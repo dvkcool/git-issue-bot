@@ -1,5 +1,5 @@
-description: A quickstart slack horoscope bot based on nodejs
-keywords: bot, slack, nodejs, express, node, javascript, slack, slack bot, chatbot
+description: A quickstart Github bot based on nodejs
+keywords: bot, github, nodejs, express, node, javascript, git, git bot, chatbot, git-hub-bot
 media: {}
-name: slack-horoscope-bot
+name: git-issue-bot
 platformVersion: v0.15.3
