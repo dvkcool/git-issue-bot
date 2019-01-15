@@ -1,4 +1,4 @@
-# Building a Slack Horoscope Bot on Hasura
+# Building a Git Issue Bot on Hasura
 
 This tutorial consists of a quickstart github bot which can be easily deployed and modified.
 
